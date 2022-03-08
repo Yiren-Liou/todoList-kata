@@ -17,7 +17,8 @@ const reqFunction = function (req, res) {
   })
 
   if(apiUrl == '/todos' && apiMethod == 'GET') {
-    successHandler(res, todoList, '資料取得成功');
+    const message = todoList.length > 0? '代辦事項取得成功': '目前沒有代辦事項呦';
+    successHandler(res, todoList, message);
   } else if(apiUrl == '/todos' && apiMethod == 'POST') {
     req.on('end', () => {
       try {
